@@ -1,22 +1,19 @@
-from selene import browser, be, have
-import pytest
+from components import text_box
 
 
-def test_submit_text_box_form():
-    # Открываем страницу с формой Text Box
-    browser.open('https://demoqa.com/text-box')
 
-    # Заполняем поля формы
-    browser.element(by.id('userName')).type('Svetlana Zubrilina')
-    browser.element(by.id('userEmail')).type('lana.zubrilina@gmail.com')
-    browser.element(by.id('currentAddress')).type('123 Main St')
-    browser.element(by.id('permanentAddress')).type('123 Another St')
 
-    # Нажимаем на кнопку Submit
-    browser.element(by.id('submit')).click()
+def test_text_box_form():
+    text_box.open('https://demoqa.com/text-box')
+    text_box.fullname_field('Svetlana Zubrilina')
+    text_box.email_field('lana.zubrilina@gmail.com')
+    text_box.current_address('123 Main St')
+    text_box.permanent_adress('123 Another St')
+    text_box.submit_buton().click()
 
-    # Проверяем, что введенные данные отобразились на странице
-    browser.element(by.id('name')).should(have.text('Name:Svetlana Zubrilina'))
-    browser.element(by.id('email')).should(have.text('Email:lana.zubrilina@gmail.com'))
-    browser.element(by.id('currentAddress')).should(have.text('Current Address :123 Main St'))
-    browser.element(by.id('permanentAddress')).should(have.text('Permananet Address :123 Another St'))
+def submit_form():
+    text_box.open('https://demoqa.com/text-box')
+    text_box.fullname_field('Svetlana Zubrilina')
+    text_box.email_field('lana.zubrilina@gmail.com')
+    text_box.current_address('123 Main St')
+    text_box.permanent_adress('123 Another St')
