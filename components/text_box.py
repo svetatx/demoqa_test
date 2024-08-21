@@ -1,23 +1,25 @@
-from selene import browser, be, have
+from selene import browser, have, be
 from selene.support.shared.jquery_style import s
-import pytest
 
-def open():
-    browser.open("https://demoqa.com/text-box")
 
-def fullname_field(fullname):
-    s("#fullname").type('fullname')
+def visit():
+    browser.open("/text-box")
 
-def email_field(email):
-    s("#email").type('email')
+def fullname_field_type(fullname):
+    s("#userName").type('fullname')
 
-def current_address_field(current_address):
-    s("#current_address").type('address')
+def email_field_type(email):
+    s("#userEmail").type('email')
 
-def permanent_address_field(permanent_address):
-    s("#permanent_address").type('address')
+def current_address_field_type(current_address):
+    s("#currentAddress").type('current_address')
+
+def permanent_address_field_type(permanent_address):
+    s("#permanentAddress").type('permanent_address')
 
 def submit_button():
     return s("#submit")
 
+def output_should_be_visible():
+    s("#output").should(be.visible)
 
