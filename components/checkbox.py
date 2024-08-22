@@ -9,12 +9,13 @@ def expand_all():
     s(".rct-collapse-btn").click()
 
 def get_checkbox():
-    return s(".rct-node [for='tree-node-Home']")
+    return s("#tree-node-desktop")
+
 
 def should_be_selected():
-    get_checkbox().should(be.selected)
+    get_checkbox("Desktop").should(be.selected)
 
 def should_display_selected_text():
-    s('#result').should(have.text("Home"))
+    s("#result").should(have.text("Desktop"))
 
 

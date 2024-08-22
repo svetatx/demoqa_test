@@ -10,9 +10,9 @@ def expand_all():
     s(".rct-collapse-btn").click()
 
 def get_elements_form():
-    #  Возвращает элемент с текстом 'Elements' внутри div с классом 'card-body'.
-    return s('div.card-body').element(have.text('Elements'))
+    #  Возвращает элемент с текстом 'Elements'
+    return s("div.card-body").element(have.text("Elements"))
 
 def should_be_open_elements_page():
   #Проверяет, что страница элементов открыта.
-    browser.should(have.url('/elements'))
+    browser.should(have.url("/elements"))
