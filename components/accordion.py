@@ -8,4 +8,4 @@ def close_section_with_name():
     return s(by.xpath("//*[text()='Elements']")).click()
 
 def should_be_open_elements_page():
-    browser.should(have.url("/elements"))
+    browser.should(have.url_containing("/elements"))
